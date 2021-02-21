@@ -3,7 +3,7 @@
 ## Description
 Honey encryption of BIP39 seeds. 
 
-> We introducehoney encryption(HE), a simple, general approach toencrypting messages using low min-entropy keys such as passwords. HE is de-signed to produce a ciphertext which, when decrypted with any of a number ofincorrectkeys, yields plausible-looking but bogus plaintexts calledhoney mes-sages. A key benefit of HE is that it provides security in cases where too littleentropy  is available to withstand brute-force attacks that  try every key;  in thissense,  HE  provides  security  beyond  conventional  brute-force  bounds. 
+> We introduce honey encryption(HE), a simple, general approach to encrypting messages using low min-entropy keys such as passwords. HE is de-signed to produce a ciphertext which, when decrypted with any of a number of incorrect keys, yields plausible-looking but bogus plaintexts called honey messages. A key benefit of HE is that it provides security in cases where too little entropy  is available to withstand brute-force attacks that try every key;  in this sense,  HE  provides  security  beyond  conventional  brute-force  bounds. 
 > 
 > <cite>https://link.springer.com/chapter/10.1007/978-3-642-55220-5_17</cite>
 
