@@ -7,6 +7,8 @@ The program is used to encrypt and decrypt files containing BIP39 seeds with a p
 
 Decryption attempts using the wrong key will always produce a wrong, yet valid BIP39 seed. Thus attempts of breaking the encryption using brute-force or dictionary attacks will be much harder for an attacker, as the resulting plaintext will always seem valid.
 
+The program currently supports 12 and 24 word seeds.
+
 Read the paper by Juels and Ristenpart for more information about Honey Encryption:
 * https://link.springer.com/chapter/10.1007/978-3-642-55220-5_17
 
