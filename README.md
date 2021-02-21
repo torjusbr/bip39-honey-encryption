@@ -1,9 +1,9 @@
 # bip039-honey-encryption
 
 ## Description
-Honey encryption of BIP39 seeds. T
+Honey encryption of BIP39 seeds. 
 
-he program is used to encrypt and decrypt files containing BIP39 seeds with a password derived key. The files are encrypted using AES-CBC.
+The program is used to encrypt and decrypt files containing BIP39 seeds with a password derived key. The files are encrypted using AES-CBC.
 
 Decryption attempts using the wrong key will always produce a wrong, yet valid BIP39 seed. Thus attempts of breaking the encryption using brute-force or dictionary attacks will be much harder for an attacker, as the resulting plaintext will always seem valid.
 
