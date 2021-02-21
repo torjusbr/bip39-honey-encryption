@@ -1,7 +1,8 @@
 # bip039-honeyencrypt
 
 ## Description
-Honey encrypt BIP039 seeds. The program is used to encrypt and decrypt files containing BIP039 seeds with a password derived key. The files are encrypted usoing AES-CBC.
+Honey encrypt BIP039 seeds. The program is used to encrypt and decrypt files containing BIP039 seeds with a password derived key. The files are encrypted using AES-CBC.
+
 Decryption attempts using the wrong key will always produce a wrong, yet valid BIP039 seed. Thus attempts of breaking the encryption using brute-force or dictionary attacks will be much harder for an attacker, as the resulting plaintext will always seem valid.
 
 Read the paper by Juels and Ristenpart for more information about Honey Encryption:
