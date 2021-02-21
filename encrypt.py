@@ -30,7 +30,6 @@ def dte_decode(text):
         words.append(wordlist[index]) 
     return words
 
-
 def encrypt(dte, key):
     iv = Random.new().read(AES.block_size)
     obj = AES.new(key, AES.MODE_CBC, iv)
@@ -90,7 +89,7 @@ if __name__ == "__main__":
         password = getpass()
         password2 = getpass() 
         if password != password2:
-            print("Passwords didn't match")
+            print("Passwords did not match")
         else:
             key, salt = derive_key(password)
             dte = dte_encode(args.seed_file)
@@ -105,4 +104,3 @@ if __name__ == "__main__":
         dte = dte_decode(plaintext)
         write_plaintext(dte, args.out_file)
         print("Plaintext written to", args.out_file)
-
