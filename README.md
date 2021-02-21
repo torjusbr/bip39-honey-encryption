@@ -1,4 +1,4 @@
-# bip039-honeyencrypt
+# bip039-honey-encryption
 
 ## Description
 Honey encrypt BIP39 seeds. The program is used to encrypt and decrypt files containing BIP39 seeds with a password derived key. The files are encrypted using AES-CBC.
