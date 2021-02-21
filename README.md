@@ -9,7 +9,7 @@ Decryption attempts using the wrong key will always produce a wrong, yet valid B
 `python3 encrypt.py -e -s test_seed.txt -o ciphertext.txt`
 
 ### Decrypt
-`python3 encrypt.py -d -c ciphertext.txt -o plaintext.txt 
+`python3 encrypt.py -d -c ciphertext.txt -o plaintext.txt` 
 
 For more information about Honey Encryption:
 * https://link.springer.com/chapter/10.1007/978-3-642-55220-5_17
