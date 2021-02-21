@@ -3,9 +3,9 @@
 ## Description
 Honey encryption of BIP39 seeds. 
 
-> Honey encryption is a type of data encryption that "produces a ciphertext, which, when decrypted with an incorrect key as guessed by the attacker, presents a plausible-looking yet incorrect plaintext password or encryption key." 
+> We introducehoney encryption(HE), a simple, general approach toencrypting messages using low min-entropy keys such as passwords. HE is de-signed to produce a ciphertext which, when decrypted with any of a number ofincorrectkeys, yields plausible-looking but bogus plaintexts calledhoney mes-sages. A key benefit of HE is that it provides security in cases where too littleentropy  is available to withstand brute-force attacks that  try every key;  in thissense,  HE  provides  security  beyond  conventional  brute-force  bounds. 
 > 
-> <cite>https://en.wikipedia.org/wiki/Honey_encryption</cite>
+> <cite>https://link.springer.com/chapter/10.1007/978-3-642-55220-5_17</cite>
 
 The program is used to encrypt and decrypt files containing BIP39 seeds with a password derived key. The files are encrypted using AES-CBC.
 
