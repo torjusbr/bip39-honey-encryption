@@ -17,13 +17,14 @@ def dte_encode(seed_file):
             for word in seed:
                 word = word.replace('\n','')
                 index = wordlist.index(word)
-                byte_value = int_to_bytes(index)
+                byte_value = int_to_bytes(index, 16)
                 plaintext.append(byte_value)
     return  b''.join(plaintext)
 
 def dte_decode(text):
     words = []
-    byte_numbers = [text[i:i+4] for i in range(0, len(text), 4)]
+    #byte_numbers = [text[i:i+4] for i in range(0, len(text), 4)]
+    byte_numbers = [text[i:i+16] for i in range(0, len(text), 16)]
     for byte_number in byte_numbers:
         index = int_from_bytes(byte_number) % 2048
         words.append(wordlist[index]) 
@@ -66,8 +67,8 @@ def read_ciphertext(filename):
             values.append(base64.b64decode(value))
     return values[0], values[1], values[2]
 
-def int_to_bytes(x: int) -> bytes:
-    return x.to_bytes(4, 'big')
+def int_to_bytes(x: int, num_bytes) -> bytes:
+    return x.to_bytes(num_bytes, 'big')
     
 def int_from_bytes(xbytes: bytes) -> int:
     return int.from_bytes(xbytes, 'big')

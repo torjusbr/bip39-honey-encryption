@@ -16,9 +16,3 @@ census
 already
 wood
 swamp
-zero
-salute
-joke
-jar
-gravity
-face
