@@ -10,10 +10,16 @@ Read the paper by Juels and Ristenpart for more information about Honey Encrypti
 
 ## Usage
 ### Encrypt
+The following command will encrypt a seed stored in the file `test_seed.txt`and store the ciphertext in the file `ciphertext.txt`.
 `python3 encrypt.py -e -s test_seed.txt -o ciphertext.txt`
 
+
+
 ### Decrypt
+The following command will decrypt a ciphertext stored in the file `ciphertext.txt`and store the plaintext in the file `plaintext.txt`.
 `python3 encrypt.py -d -c ciphertext.txt -o plaintext.txt` 
+
+
 
 
 
