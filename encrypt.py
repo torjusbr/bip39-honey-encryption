@@ -83,7 +83,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.d == args.e:
-        print("Encrypt or decrypt")
+        print("Encrypt (-e) or decrypt (-d)")
     elif args.e:
         if args.seed_file == None or args.out_file == None:
             print("Missing mandatory encryption flags -s or -o.")
