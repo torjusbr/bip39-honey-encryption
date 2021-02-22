@@ -43,7 +43,8 @@ $ cat ciphertext.txt
 
 JDJiJDEyJGJSajAzb29ub0ltNmdlY2Zma0F6N2U=
 A94UC9Rf0CcSAtIvJrzSzg==
-Re7LWi9HBKOuRSpJdykET7zl3wT544JVVlG6rNgEfoARcvAlvcUu9iysZdufRER8POJnPRCOv9pTrfulnWsR6At0eKUD8CSe3/ISmccFSOc2bb+X3n+6niv5oZUHHpwLvkowdDCwmHfpAvxg5L15OGtsDyLzqfr3HU1SlwFH1n5W6a2zYQt1T2BHeTXC6Sdvju44HQkCZHuboDHrMt1ut7NtgUa51a/DOB9GnXWp0KsAIvfIyxSbKQiBSfGT3LHwM1gU2y2gALQ39ain2IZ9MHvXcgiw/PL4RClh8iupq7NFvSP6pWTZS8iaiP7u5zp0QI8YZbubtqdChlIpp+GlekWgOBPxjXkw6Zbozomsy/PKRk6dd/2ickLRLM+vRfDI```
+Re7LWi9HBKOuRSpJdykET7zl3wT544JVVlG6rNgEfoARcvAlvcUu9iysZdufRER8POJnPRCOv9pTrfulnWsR6At0eKUD8CSe3/ISmccFSOc2bb+X3n+6niv5oZUHHpwLvkowdDCwmHfpAvxg5L15OGtsDyLzqfr3HU1SlwFH1n5W6a2zYQt1T2BHeTXC6Sdvju44HQkCZHuboDHrMt1ut7NtgUa51a/DOB9GnXWp0KsAIvfIyxSbKQiBSfGT3LHwM1gU2y2gALQ39ain2IZ9MHvXcgiw/PL4RClh8iupq7NFvSP6pWTZS8iaiP7u5zp0QI8YZbubtqdChlIpp+GlekWgOBPxjXkw6Zbozomsy/PKRk6dd/2ickLRLM+vRfDI
+```
 
 Decrypting the ciphertext in `ciphertext.txt`with the wrong password `Passw0rd`results in the following plausible looking plaintext seed:
 ```
@@ -72,7 +73,8 @@ envelope
 scene
 food
 tattoo
-record```
+record
+```
 
 Decrypting the ciphertext in `ciphertext.txt`with the correct password `s3cret`results in the following actual plaintext seed, identical to the seed in `test_seed.txt`:
 ```
@@ -101,6 +103,7 @@ actress
 census
 already
 wood
-swamp`
+swamp
+`
 
 
