@@ -86,6 +86,9 @@ if __name__ == "__main__":
     if args.d == args.e:
         print("Encrypt or decrypt")
     elif args.e:
+        if args.seed_file == None or args.out_file == None:
+            print("Missing mandatory encryption flags -s or -o.")
+            exit()
         password = getpass()
         password2 = getpass() 
         if password != password2:
@@ -97,6 +100,9 @@ if __name__ == "__main__":
             write_ciphertext(salt, ciphertext, iv, args.out_file)
             print("Ciphertext written to", args.out_file)
     elif args.d:
+        if args.ciphertext_file == None or args.out_file == None:
+            print("Missing mandatory decryption flags -c or -o.")
+            exit()
         password = getpass()
         salt, iv, ciphertext = read_ciphertext(args.ciphertext_file)
         key, salt = derive_key(password, salt)
