@@ -7,7 +7,7 @@ Honey encryption of BIP39 seeds.
 > 
 > <cite>https://link.springer.com/chapter/10.1007/978-3-642-55220-5_17</cite>
 
-The program is used to encrypt and decrypt files containing BIP39 seeds with a password derived key. The files are encrypted using AES-CBC.
+The program is used to encrypt and decrypt files containing BIP39 seeds with a password derived key. The keys are derived from user chosen passwords using salted bcrypt. The files are encrypted using AES-CBC.
 
 Decryption attempts using the wrong key will always produce a wrong, yet plausible looking BIP39 seed. Thus attempts of breaking the encryption using brute-force or dictionary attacks will be much harder for an attacker, as the resulting plaintext will always seem valid.
 
