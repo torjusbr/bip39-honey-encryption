@@ -23,7 +23,6 @@ def dte_encode(seed_file):
 
 def dte_decode(text):
     words = []
-    #byte_numbers = [text[i:i+4] for i in range(0, len(text), 4)]
     byte_numbers = [text[i:i+16] for i in range(0, len(text), 16)]
     for byte_number in byte_numbers:
         index = int_from_bytes(byte_number) % 2048
