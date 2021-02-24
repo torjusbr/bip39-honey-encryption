@@ -15,11 +15,11 @@ def dte_encode(seed_file):
     plaintext = [] 
     with open(seed_file) as seed:
             for word in seed:
-                word = word.replace('\n','')
+                word = word.replace("\n","")
                 index = wordlist.index(word)
                 byte_value = int_to_bytes(index, 16)
                 plaintext.append(byte_value)
-    return  b''.join(plaintext)
+    return  b"".join(plaintext)
 
 def dte_decode(text):
     words = []
@@ -60,18 +60,18 @@ def read_ciphertext(filename):
         return base64.b64decode(data["salt"]), base64.b64decode(data["iv"]), base64.b64decode(data["ciphertext"])
 
 def int_to_bytes(x: int, num_bytes) -> bytes:
-    return x.to_bytes(num_bytes, 'big')
+    return x.to_bytes(num_bytes, "big")
     
 def int_from_bytes(xbytes: bytes) -> int:
-    return int.from_bytes(xbytes, 'big')
+    return int.from_bytes(xbytes, "big")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='')
-    parser.add_argument('-s', dest='seed_file', type=str, help='BIP039 seed file')
-    parser.add_argument('-c', dest='ciphertext_file', type=str, help='Encrypted BIP039 seed file')
-    parser.add_argument('-o', dest='out_file', type=str, help='Output file')
-    parser.add_argument('-d', action="store_true", default=False, help='Decrypt')
-    parser.add_argument('-e', action="store_true", default=False, help='Encrypt')
+    parser = argparse.ArgumentParser(description="")
+    parser.add_argument("-s", dest="seed_file", type=str, help="BIP039 seed file")
+    parser.add_argument("-c", dest="ciphertext_file", type=str, help="Encrypted BIP039 seed file")
+    parser.add_argument("-o", dest="out_file", type=str, help="Output file")
+    parser.add_argument("-d", action="store_true", default=False, help="Decrypt")
+    parser.add_argument("-e", action="store_true", default=False, help="Encrypt")
 
     args = parser.parse_args()
 
