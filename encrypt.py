@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import argparse
-import os
 import base64
 import json
 import argon2
