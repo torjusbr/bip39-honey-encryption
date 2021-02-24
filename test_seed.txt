@@ -10,9 +10,3 @@ joke
 jar
 gravity
 face
-acid
-actress
-census
-already
-wood
-swamp

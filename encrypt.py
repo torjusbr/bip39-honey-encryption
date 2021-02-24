@@ -3,6 +3,8 @@ import argparse
 import os
 import bcrypt
 import base64
+import json
+import argon2
 from getpass import getpass
 from Crypto.Cipher import AES
 from hashlib import sha256
@@ -40,19 +42,13 @@ def decrypt(ciphertext, key, iv):
     plaintext = obj.decrypt(ciphertext)
     return plaintext
 
-def derive_key(password, salt=bcrypt.gensalt()):
-    bcrypt_hash = bcrypt.hashpw(password.encode("utf8"), salt)
-    passphrase_hash = sha256(bcrypt_hash).digest()
-    return passphrase_hash, salt
+def derive_key(password, salt=Random.new().read(16)):
+    argon2id_hash = argon2.low_level.hash_secret_raw(password.encode("utf8"), salt, time_cost=2, memory_cost=102400, parallelism=8, hash_len=16, type=argon2.low_level.Type.ID)
+    return argon2id_hash, salt
 
 def write_ciphertext(salt, ciphertext, iv, filename):
     with open(filename, "w") as out_file:
-        out_file.write(base64.b64encode(salt).decode("utf8"))
-        out_file.write("\n")
-        out_file.write(base64.b64encode(iv).decode("utf8"))
-        out_file.write("\n")
-        out_file.write(base64.b64encode(ciphertext).decode("utf8"))
-        out_file.write("\n")
+        out_file.write(json.dumps({"salt": base64.b64encode(salt).decode("utf8"), "iv": base64.b64encode(iv).decode("utf8"), "ciphertext": base64.b64encode(ciphertext).decode("utf8")}).encode("utf8").decode("utf8"))
 
 def write_plaintext(plaintext, filename):
     with open(filename, "w") as out_file:
@@ -62,9 +58,8 @@ def write_plaintext(plaintext, filename):
 def read_ciphertext(filename):
     values = []
     with open(filename) as in_file:
-        for value in in_file:
-            values.append(base64.b64decode(value))
-    return values[0], values[1], values[2]
+        data = json.load(in_file)
+        return base64.b64decode(data["salt"]), base64.b64decode(data["iv"]), base64.b64decode(data["ciphertext"])
 
 def int_to_bytes(x: int, num_bytes) -> bytes:
     return x.to_bytes(num_bytes, 'big')
