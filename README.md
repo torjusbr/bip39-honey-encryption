@@ -7,7 +7,7 @@ Honey encryption of BIP39 seeds.
 > 
 > <cite>https://link.springer.com/chapter/10.1007/978-3-642-55220-5_17</cite>
 
-The program is used to encrypt and decrypt files containing BIP39 seeds with a password derived key. The keys are derived from user chosen passwords using salted bcrypt. The files are encrypted using AES-CBC.
+The program is used to encrypt and decrypt files containing BIP39 seeds of all possible sizes with a password derived key. The keys are derived from user chosen passwords using salted Argon2id. The files are encrypted using AES-CBC.
 
 Decryption attempts using the wrong key will always produce a wrong, yet plausible looking BIP39 seed. Thus attempts of breaking the encryption using brute-force or dictionary attacks will be much harder for an attacker, as the resulting plaintext will always seem valid.
 
@@ -29,16 +29,14 @@ The following command will decrypt a ciphertext stored in the file `ciphertext.t
 
 
 ## Demo
-Encrypting the seed in `test_seed.txt`with password `s3cret` results in the following ciphertext (`ciphertext.txt`):
+Encrypting the seed in `test_seed.txt` with password `s3cret` results in the following ciphertext (`ciphertext.txt`):
 ```
 $ python3 encrypt.py -e -s test_seed.txt -o ciphertext.txt
 Password:
 Password:
 Ciphertext written to ciphertext.txt
 $ cat ciphertext.txt
-JDJiJDEyJGJSajAzb29ub0ltNmdlY2Zma0F6N2U=
-A94UC9Rf0CcSAtIvJrzSzg==
-Re7LWi9HBKOuRSpJdykET7zl3wT544JVVlG6rNgEfoARcvAlvcUu9iysZdufRER8POJnPRCOv9pTrfulnWsR6At0eKUD8CSe3/ISmccFSOc2bb+X3n+6niv5oZUHHpwLvkowdDCwmHfpAvxg5L15OGtsDyLzqfr3HU1SlwFH1n5W6a2zYQt1T2BHeTXC6Sdvju44HQkCZHuboDHrMt1ut7NtgUa51a/DOB9GnXWp0KsAIvfIyxSbKQiBSfGT3LHwM1gU2y2gALQ39ain2IZ9MHvXcgiw/PL4RClh8iupq7NFvSP6pWTZS8iaiP7u5zp0QI8YZbubtqdChlIpp+GlekWgOBPxjXkw6Zbozomsy/PKRk6dd/2ickLRLM+vRfDI
+{"salt": "KwUQUC0RIsP3PCAfB1CYRA==", "iv": "wFTCSnfW39twIkSKD/WPbg==", "ciphertext": "tnYx74rCWAD1cbVtxpHNb8kRuVR0jmGbP/9SCVbudI+kKkFjYbDQo356VW6YBkRaYrjjwk/5Q5J2a/ccvzecRSsLNACT55LenUuPEv7C9eJe+ZV8qDoLURIt37rrlDmUiGjq+aHZsIzAMuQY3M0Ze4GzWLJeX9jX4Rgu1of/Se54FzyzwZ5FsN9eRvx96PI6YG4d3r9HPDvq3+sE2WvMtjJk/bzyklLxRclToN9eLovNxVqki/UphBrq8B4Sc19P"}
 ```
 
 Decrypting the ciphertext in `ciphertext.txt`with the wrong password `Passw0rd`results in the following plausible looking plaintext seed:
@@ -59,12 +57,6 @@ share
 pelican
 track
 expect
-peace
-envelope
-scene
-food
-tattoo
-record
 ```
 
 Decrypting the ciphertext in `ciphertext.txt`with the correct password `s3cret`results in the following actual plaintext seed, identical to the seed in `test_seed.txt`:
@@ -85,12 +77,4 @@ joke
 jar
 gravity
 face
-acid
-actress
-census
-already
-wood
-swamp
 ```
-
-
