@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import argparse
 import os
-import bcrypt
 import base64
 import json
 import argon2
