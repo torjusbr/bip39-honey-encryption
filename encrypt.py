@@ -41,7 +41,7 @@ def decrypt(ciphertext, key, iv):
     return plaintext
 
 def derive_key(password, salt=Random.new().read(16)):
-    argon2id_hash = argon2.low_level.hash_secret_raw(password.encode("utf8"), salt, time_cost=2, memory_cost=102400, parallelism=8, hash_len=16, type=argon2.low_level.Type.ID)
+    argon2id_hash = argon2.low_level.hash_secret_raw(password.encode("utf8"), salt, time_cost=2, memory_cost=102400, parallelism=8, hash_len=32, type=argon2.low_level.Type.ID)
     return argon2id_hash, salt
 
 def write_ciphertext(salt, ciphertext, iv, filename):
